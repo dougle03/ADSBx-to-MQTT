@@ -1,0 +1,15 @@
+[Unit]
+Description=ADSB to MQTT Bridge
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/adsb-to-mqtt.py
+Restart=always
+User=pi
+WorkingDirectory=/home/pi
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=adsb-mqtt
+
+[Install]
+WantedBy=multi-user.target
